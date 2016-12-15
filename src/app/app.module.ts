@@ -6,12 +6,11 @@ import { ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpService } from './http.service';
 import { AppComponent } from './app.component';
-import { ObjToArrayPipePipe } from './obj-to-array-pipe.pipe';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ObjToArrayPipePipe
+    AppComponent
   ],
   imports: [
     BrowserModule,
