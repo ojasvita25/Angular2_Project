@@ -48,8 +48,8 @@ const myArray1=[];
 for(let key in data){
   myArray.push(key);
 }
-for(let key in data.Angularjs1-5){
-  myArray1.push(data.Angularjs1-5[key]);
+for(let key in data){
+  myArray1.push(data[key]);
 }
 this.pages = myArray;
 this.dummy =  myArray1;
