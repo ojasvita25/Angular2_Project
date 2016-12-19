@@ -1,61 +1,21 @@
 <h3>{{title}}</h3>
+<div class="row">
+<div class=" col-md-2 dropdown" appDropdown>
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Choose Topic
+    <span class="caret"></span></button>
+     <ul  class="dropdown-menu">
+       <li *ngFor="let t of items" ><a routerLink= {{t}}>{{t}}</a></li>
+    </ul>
+  </div>
+  
+<div class="col-md-2 dropdown" appDropdown>
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Choose SubTopic
+    <span class="caret"></span></button>
+     <ul  class="dropdown-menu">
+       <li *ngFor="let m of pages" ><a routerLink= {{m}}>{{m}}</a></li>
+    </ul>
+    
+  </div>
+  </div>
 
-
-<form  [formGroup]="myForm" (ngSubmit)="onSubmit()">
-<div>
-    <select formControlName="Topic">
-        <option *ngFor="let t of items" [ngValue]="topics">  
-            {{t}}
-        </option>
-    </select>
-    <select formControlName="SubTopic">
-        <option *ngFor="let m of pages" [ngValue]="subtopics">  
-            {{m}}
-        </option>
-    </select>
-</div>
-<br>
-	<div *ngFor="let i of ques">
-	<!-- <div class="form-group">
-		<label for="username">
-			Username
-		</label>
-		<input type="text" class="form-contorl" id="username"
-		formControlName="username">
-	</div>
-	<br>
-	<div class="form-group">
-		<label for="password">
-			Password 
-		</label>
-		<input type="text" class="form-contorl" id="password"
-		formControlName="password">
-	</div> -->
-	<br>
-		<label for="question">{{i}}
-		<span *ngIf="show_ans">
-		Your Answer is {{Result}}
-		</span>
-		</label>
-		<div class="checkbox" *ngFor="let g of options">
-		<label>
-		<!-- Look up on a logic for this!!! -->
-		<input type="checkbox" formControlName="options"  data-md-icheck (change)="ForCheckboxChange(g, $event)">
-		{{g.suboption}}
-		</label>
-		</div>
-		<div *ngIf="show_ans">
-	<b>Correct answer:</b>
-		<div *ngFor="let t of options">
-		<span *ngIf="t.answer" >
-			{{t.suboption}}
-		</span>
-		</div>
-		</div>
-		</div>
-		<br><br>
-<button type="submit" class="btn btn-primary">Submit</button>
-<button type="reset" class="btn btn-danger" (click)="reset()">Retake Test</button>
-<br>
-<h4 *ngIf="show_ans"><b>SCORE:{{ScoreValue}}</b></h4>
-</form>
+<router-outlet></router-outlet>

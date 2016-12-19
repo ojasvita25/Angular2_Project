@@ -1,0 +1,31 @@
+<h4>Bootstrap</h4>
+<form  [formGroup]="myForm" (ngSubmit)="onSubmit()">
+	<div *ngFor="let i of ques">
+	<br>
+		<label for="question">{{i.name}}
+		<span *ngIf="show_ans">
+		Your Answer is {{Result}}
+		</span>
+		</label>
+		<div class="checkbox" *ngFor="let g of options">
+		<label>
+		<!-- Look up on a logic for this!!! -->
+		<input type="checkbox" formControlName="options"  data-md-icheck (change)="ForCheckboxChange(g, $event)">
+		{{g.suboption}}
+		</label>
+		</div>
+		<div *ngIf="show_ans">
+	<b>Correct answer:</b>
+		<div *ngFor="let t of options">
+		<span *ngIf="t.answer" >
+			{{t.suboption}}
+		</span>
+		</div>
+		</div>
+		</div>
+		<br><br>
+<button type="submit" class="btn btn-primary">Submit</button>
+<button type="reset" class="btn btn-danger" (click)="reset()">Retake Test</button>
+<br>
+<h4 *ngIf="show_ans"><b>SCORE:{{ScoreValue}}</b></h4>
+</form>

@@ -6,18 +6,24 @@ import { ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpService } from './http.service';
 import { AppComponent } from './app.component';
-
+import {routing} from './app.routing';
+import { AngularComponent } from './angular.component';
+import { BootstrapComponent } from './bootstrap.component';
+import { DropdownDirective } from './dropdown.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AngularComponent,
+    BootstrapComponent,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule,
     HttpModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,routing
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]
